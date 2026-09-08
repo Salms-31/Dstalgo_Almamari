@@ -1,0 +1,49 @@
+// Display 5 Inputs
+Console.Write("Input name: ");
+string name = Console.ReadLine();
+Console.Write("Input age: ");
+int age = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input favourite color: ");
+string color = Console.ReadLine();
+Console.Write("Input favourite animal: ");
+string animal = Console.ReadLine();
+Console.Write("Input favourite food: ");
+string food = Console.ReadLine();
+
+Console.WriteLine("\n===============================");
+Console.WriteLine("Name: " + name);
+Console.WriteLine("Age: " + age);
+Console.WriteLine("Favourite Color: " + color);
+Console.WriteLine("Favourite Animal: " + animal);
+Console.WriteLine("Favourite Food: " + food);
+
+*******************************************************************
+
+// Question Number 4: Rectangle and circle Analyzer
+Console.Write("Input Rectangle Length: ");
+double L = Convert.ToDouble(Console.ReadLine());
+Console.Write("Input Rectangle Width: ");
+double W = Convert.ToDouble(Console.ReadLine());
+Console.Write("Input Circle Radius: ");
+double R = Convert.ToDouble(Console.ReadLine());
+
+Double RA = L * W;
+Double RP = 2 * (L + W);
+Double CA = Math.PI * R * R;
+Double CC = 2 * Math.PI * R;
+
+bool IsGreater = RA > CA;
+bool RPHigher = RP > 100;
+bool CHigher = CA > 500;
+
+Console.WriteLine("\n===========================================");
+Console.WriteLine("Rectangle Area: " + RA);
+Console.WriteLine("Rectangle Perimeter: " + RP);
+Console.WriteLine("Circle Area: " + CA);
+Console.WriteLine("Circle Circumference: " + CC);
+Console.WriteLine("\n============Boolean Comparisons============");
+Console.WriteLine("Rectangle Area > Circle Area? " + IsGreater);
+Console.WriteLine("Rectangle Perimeter > 100? " + RPHigher);
+Console.WriteLine("Circle Area > 500? " + CHigher);
+
+
