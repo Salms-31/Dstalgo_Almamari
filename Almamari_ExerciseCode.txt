@@ -1,0 +1,157 @@
+Treasure Hunt Code
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            while (picluffy.Left < picPone.Left - 50)
+            {
+                picluffy.Left += 10;
+                Application.DoEvents();
+                System.Threading.Thread.Sleep(100);
+            }
+            lblStatus.Text = "Luffy is now King of The Pirates";
+
+            int treasure = 1;
+            lstScore.Items.Clear();
+            while (treasure <= 10)
+            {
+                lstScore.Items.Add("Treasure " + treasure + "collected!");
+                treasure++;
+                
+            }
+        }
+    }
+}
+
+Secret Number Code
+
+        private void btnGuess_Click(object sender, EventArgs e)
+        {
+            int secret = 7;
+            int guess = Convert.ToInt32(txtGuess.Text);
+
+            while (guess != secret)
+            {
+                lblMessage.Text = "Wrong guess! Try again.";
+                return;
+
+            }
+            lblMessage.Text = "Congratulations! You guessed the secret number.";
+        }
+    }
+}
+
+Coins
+
+        private void btnCollect_Click(object sender, EventArgs e)
+        {
+            int coins = 0;
+
+            do
+            {
+                coins += 10;
+            }
+            while (coins < 100);
+            lblCoins.Text = "Your Coins: " + coins;
+        }
+    }
+}
+
+Monster Fight Code
+
+        private void btnFight_Click(object sender, EventArgs e)
+        {
+            int hp = 50;
+            string result = "";
+
+            do
+            {
+                hp -= 10;  
+                result += "Monster HP: " + hp + "\n";
+            }
+            while (hp > 0);
+            result += "\nMonster defeated!";
+            lblResult.Text = result;
+        }
+    }
+}
+
+Choose a Weapon Code
+
+        private void btnFight_Click(object sender, EventArgs e)
+        {
+            string weapon = cmbWeapon.Text;
+            switch (weapon)
+            {
+                case "Sword":
+                    lblResult.Text = "You chose Sword! Prepare for close combat!";
+                    break;
+                case "Bow":
+                   lblResult.Text = "You chose Bow! Get ready for long-range attacks!";
+                    break;
+                case "Magic":
+                    lblResult.Text = "You chose Magic! Prepare to cast powerful spells!";
+                    break;
+                default:
+                    lblResult.Text = "Please select a valid weapon!";
+                    break;
+
+            }
+        }
+    }
+}
+
+Door Code
+
+        private void btnDoor_Click(object sender, EventArgs e)
+        {
+            int door = Convert.ToInt32(txtDoor.Text);
+            switch (door)
+            {
+                case 1:
+                    lblResult.Text = "You found treasure!";
+                    break;
+                case 2:
+                    lblResult.Text = "You found a monster!";
+                    break;
+                case 3:
+                    lblResult.Text = "You found a magic potion!";
+                    break;
+                default:
+                    lblResult.Text = "Pick Between 1-3";
+                    break;
+            }
+        }
+    }
+}
+
+Heart Collector
+
+        private void btnHeal_Click(object sender, EventArgs e)
+        {
+            progressBar1.Value = 0;
+                
+            for (int health = 0; health <= 100; health += 20)
+            {
+                progressBar1.Value = health;
+                lblHealth.Text = " Health: " + health + "%";
+                Application.DoEvents();
+                System.Threading.Thread.Sleep(300);
+            }
+            MessageBox.Show("FUll HEALTH!");
+        }
+    }
+}
+
+Star Collector
+
+        private void btnStar_Click(object sender, EventArgs e)
+        {
+            string stars = "";
+            for (int i = 1; i <= 10; i++)
+            {
+                stars += "*";
+            }
+            MessageBox.Show(stars); 
+        }
+    }
+}
