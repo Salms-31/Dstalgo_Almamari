@@ -1,0 +1,250 @@
+Almamari_Week5-6
+
+Constant Time
+
+        private void btnDone_Click(object sender, EventArgs e)
+        {
+            int[] numbers = { 10, 20, 30, 40, 50 };
+            int ind = Convert.ToInt32(txtIndex.Text);
+
+            if (ind >= 0 && ind < numbers.Length)
+            {
+                lblNC.Text = "Number chosen: " + numbers[ind].ToString();
+            }
+            else
+            {
+                lblNC.Text = "Invalid index number";
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            int add1 = Convert.ToInt32(txtAdd1.Text);
+            int add2 = Convert.ToInt32(txtAdd2.Text);
+            int sum = add1 + add2;
+            lblAdd.Text = "Sum: " + sum.ToString();
+        }
+
+        private void btnFruit_Click(object sender, EventArgs e)
+        {
+            string[] fruits = { "Apple", "Banana", "Mango" };
+            int fruit = Convert.ToInt32(txtFruit.Text);
+
+            if (fruit >= 0 && fruit < fruits.Length)
+            {
+                lblFruit.Text = "Fruit chosen: " + fruits[fruit];
+            }
+            else
+            {
+                lblFruit.Text = "Invalid index number";
+            }
+        }
+    }
+}
+
+=====================================================================================
+
+Linear Time
+
+        private void btnLoop_Click(object sender, EventArgs e)
+        {
+            int[] loop = { 10, 20, 30, 40, 50 };
+            string Result = "";
+            for (int i = 0; i < loop.Length; i++)
+            {
+                Result += loop[i] + "\n";
+
+            }
+            MessageBox.Show(Result);
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string[] search = { "Ana", "Ben", "Carlo", "David" };
+            foreach (string searchname in search)
+            {
+                if (searchname == txtSearch.Text)
+                {
+                    lblSearch.Text = "Status: Found";
+                    return;
+                }
+
+            }
+            lblSearch.Text = "Status: Not Found";
+        }
+
+        private void btnTotal_Click(object sender, EventArgs e)
+        {
+            int[] num = { 5, 10, 15 };
+            int total = 0;
+            foreach (int nums in num)
+            {
+                total += nums;
+            }
+            lblTotal.Text = "Total: " + total;
+        }
+    }
+}
+
+=====================================================================================
+
+Logarithmic Time
+
+        private void btnBS_Click(object sender, EventArgs e)
+        {
+            int[] binary = { 10, 20, 30, 40, 50, 60, 70 };
+            int number = int.Parse(txtBS.Text);
+
+            int left = 0;
+            int right = binary.Length - 1;
+            while (left <= right)
+            {
+                int mid = left + (right - left) / 2;
+                if (binary[mid] == number)
+                {
+                    lblBS.Text = $"Status: {number} found at index {mid}.";
+                    return;
+                }
+                else if (binary[mid] < number)
+                {
+                    left = mid + 1;
+                }
+                else
+                {
+                    right = mid - 1;
+                }
+            }
+        }
+
+        private void btnDivide_Click(object sender, EventArgs e)
+        {
+            int n = int.Parse(txtDivide.Text);
+            int loop = 0;
+            while (n > 1)
+            {
+                n /= 2;
+                loop++;
+            }
+            lblDivide.Text = "Answer: " + n + ", Looped " + loop + " times";
+        }
+
+        private void btnBSSG_Click(object sender, EventArgs e)
+        {
+            int high = int.Parse(txtBSSG.Text);
+            int low = 1;
+            string result = "";
+
+            while (low <= high)
+            {
+                int middle = (low + high) / 2;
+                result += middle + "\n";
+                high = middle - 1;
+            }
+            lblBSSG.Text = result;
+        }
+    }
+}
+
+=====================================================================================
+
+Quadratic Time
+
+        private void btnLIL_Click(object sender, EventArgs e)
+        {
+            int[] loopinsideloop = { 1, 2, 3, 4, 5 };
+            string result = "";
+            for (int i = 0; i < loopinsideloop.Length; i++)
+            {
+                for (int j = 0; j < loopinsideloop.Length; j++)
+                {
+                    result += loopinsideloop[i] + " " + loopinsideloop[j] + "\n";
+                }
+            }
+            MessageBox.Show(result);
+        }
+
+        private void btnTL_Click(object sender, EventArgs e)
+        {
+            int[] twoloop = { 1, 2, 3, };
+            string result = "";
+            for (int i = 0; i < twoloop.Length; i++)
+            {
+                for (int j = 0; j < twoloop.Length; j++)
+                {
+                    result += twoloop[i] + " " + twoloop[j] + "\n";
+                }
+            }
+            MessageBox.Show(result);
+        }
+
+        private void btnCS_Click(object sender, EventArgs e)
+        {
+            string[] names = { "Ana", "Ben", "Carlo" };
+            string result = "";
+            for (int i = 0; i < names.Length; i++)
+            {
+                for (int j = 0; j < names.Length; j++)
+                {
+                    result += names[i] + " checks " + names[j] + "\n";
+                }
+            }
+            MessageBox.Show(result);
+        }
+    }
+}
+
+=====================================================================================
+
+Exponential Time
+
+namespace Almamari_ExponentialTime
+{
+    public partial class Form5 : Form
+    {
+        string output = "";
+        public Form5()
+        {
+            InitializeComponent();
+        }
+        void Choose(int n, string result)
+        { 
+            if (n == 0)
+            {
+                output += result + "\n";
+                return;
+            }
+            Choose(n - 1, result + "A");
+            Choose(n - 1, result + "B");
+        }
+        private void btnMethod_Click(object sender, EventArgs e)
+        {
+            output = "";
+            Choose(3, "");
+            lblMethod.Text = output;
+        }
+    }
+}
+
+        private void btnToss_Click(object sender, EventArgs e)
+        {
+            int tosses = Convert.ToInt32(txtToss.Text);
+            int combinations = 1;
+            for (int i = 0; i < tosses; i++)
+            {
+                combinations *= 2;
+            }
+            lblToss.Text = "Number of combinations: " + combinations;
+        }
+
+        private void btnSwitch_Click(object sender, EventArgs e)
+        {
+            int switches = Convert.ToInt32(txtSwitch.Text);
+            int combinations = 1;
+            for (int i = 0; i < switches; i++)
+            {
+                combinations *= 2;
+            }
+            lblSwitch.Text = "Number of combinations: " + combinations;
+        }
+    }
+}
